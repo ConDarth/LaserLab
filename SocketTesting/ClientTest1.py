@@ -23,6 +23,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client:
     while True:  
         # Getting the data to send out
         dataOut = input().encode('ASCII')
+        if dataOut == 'q':
+            break
+        
         client.sendall(dataOut)
 
         # Receiving data back from the server
