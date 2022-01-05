@@ -13,7 +13,7 @@ DEFAULT_PORT = 5555        # Arbitrary
 
 # Setting the host and port values
 # Need to allow for changing this
-host = DEFAULT_HOST
+host = DEFAULT_HOST   #'192.168.0.240'
 port = DEFAULT_PORT
 
 # Creating the socket and then connecting to the server
@@ -23,7 +23,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client:
     while True:  
         # Getting the data to send out
         dataOut = input().encode('ASCII')
-        if dataOut == 'q':
+        if dataOut == b'q':
             break
         
         client.sendall(dataOut)
