@@ -18,9 +18,13 @@ port = DEFAULT_PORT
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
     server.bind((host, port))
 
+    connNum = 0
     # Listens for connection, and if disconnected then restarts listening
     while True:
         server.listen()
+
+        print('Listening for Connection %d' % connNum)
+        connNum += 1
 
         # Creates the connection
         serverConn, serverAddr = server.accept()
