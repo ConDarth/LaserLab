@@ -39,5 +39,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
                 # If data received then return length of string
                 if dataIn:
                     txt = dataIn
+
+                    if dataIn == b'q' :
+                        break
+                    
                     print(txt)
                     serverConn.sendall(txt)
+
+
